@@ -46,7 +46,7 @@ If you want to change the distance between points, you can modify the MDPageCont
 #define POINT_DISTANCE 10.f
 ```
 ###Point
-![(分页控件展示-圆点)](http://www.code4app.com/data/attachment/album/201703/04/220214a5db42j5889h5q8e.gif)
+![(分页控件展示-圆点)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/1.gif)
 ###Block
-![(分页控件展示-块)](http://www.code4app.com/data/attachment/album/201703/04/220218fpopbxzay2vah22b.gif)
+![(分页控件展示-块)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/2.gif)
 
