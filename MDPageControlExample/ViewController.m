@@ -38,9 +38,9 @@
     [self.scrollView setContentSize:CGSizeMake(SCREEN_WIDTH*3.f, 175.f)];
     
     //选中的图片是点
-    self.pageControl = [[MDPageControl alloc] initWithType:self.scrollView type:MDPointTypePoint];
+//    self.pageControl = [[MDPageControl alloc] initWithType:self.scrollView type:MDPointTypePoint];
     //选中的图片是块
-//    self.pageControl = [[MDPageControl alloc] initWithType:self.scrollView type:MDPointTypeBlock];
+    self.pageControl = [[MDPageControl alloc] initWithType:self.scrollView type:MDPointTypeBlock];
     //默认选中的图片是点
 //    self.pageControl = [[MDPageControl alloc] initWithScrollView:self.scrollView];
     //默认选中的图片是点, 并且设置pageControllView离scrollView底部的距离，默认为25
@@ -57,9 +57,9 @@
     [self.pageControl show];
     
     //点击小点block
-//    [self.pageControl didSelectMDPageIndexBlock:^(NSInteger pageIndex) {
-//        [self.scrollView scrollRectToVisible:CGRectMake(pageIndex*SCREEN_WIDTH, 0, SCREEN_WIDTH, 175.f) animated:YES];
-//    }];
+    [self.pageControl didSelectMDPageIndexBlock:^(NSInteger pageIndex) {
+        [self.scrollView scrollRectToVisible:CGRectMake(pageIndex*SCREEN_WIDTH, 0, SCREEN_WIDTH, 175.f) animated:YES];
+    }];
     
     //也可以设置delegate，当点击小点时，执行delegate方法
 //    self.pageControl.delegate = self;
