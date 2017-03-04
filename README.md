@@ -45,3 +45,6 @@ If you want to change the distance between points, you can modify the MDPageCont
 //圆点之间的间距
 #define POINT_DISTANCE 10.f
 ```
+![(分页控件展示-圆点)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/1.gif)
+![(分页控件展示-块)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/2.gif)
+
