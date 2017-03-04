@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MDPageControl;
+#import "MDPageControl.h"
 
 @interface ViewController : UIViewController<UIScrollViewDelegate>
+//@interface ViewController : UIViewController<UIScrollViewDelegate, MDPageControlDelegate>
+
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) MDPageControl *pageControl;
 

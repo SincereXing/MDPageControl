@@ -10,7 +10,12 @@
 #define PAGENUM @"pageNum"
 #define CURRENTPAGE @"currentPage"
 #define CONTENTOFFSET @"scrollView.contentOffset"
-#define PADDING 20
+
+//pageControllView离scrollView底部的距离
+#define PADDING 25.f
+
+//圆点之间的间距
+#define POINT_DISTANCE 10.f
 
 #define POINT_NORMAL @"point_normal"
 #define POINT_SELECTED @"point_selected"
@@ -38,7 +43,7 @@
     self.normalImageName = normalImageName;
     self.selectedImageName = selectedImageName;
     self.scrollView = scrollView;
-    return [self initWithFrame:CGRectMake(0, CGRectGetHeight(scrollView.frame) - 30, CGRectGetWidth(scrollView.frame), padding)];
+    return [self initWithFrame:CGRectMake(0, CGRectGetHeight(scrollView.frame) - padding, CGRectGetWidth(scrollView.frame), 20.f)];
 }
 
 - (instancetype)initWithPointImages:(UIScrollView *)scrollView normalImage:(NSString *)normalImageName selectedImage:(NSString *)selectedImageName {
@@ -54,7 +59,7 @@
 }
 
 - (instancetype)initWithScrollView:(UIScrollView *)scrollView {
-    return [self initWithPointImages:scrollView normalImage:@"point_normal" selectedImage:@"point_selected"];
+    return [self initWithPointImages:scrollView normalImage:POINT_NORMAL selectedImage:POINT_SELECTED];
 }
 
 - (instancetype)initWithTypeAndBottomPadding:(UIScrollView *)scrollView type:(MDPointType)type padding:(float)padding {
@@ -78,7 +83,7 @@
     
     UIImage *normalImage = [UIImage imageNamed:self.normalImageName];
     
-    float x = (width - (self.pageNum - 1)*normalImage.size.width - selectedImage.size.height - (self.pageNum - 1.f)*10.f)/2.f;
+    float x = (width - (self.pageNum - 1)*normalImage.size.width - selectedImage.size.height - (self.pageNum - 1.f)*POINT_DISTANCE)/2.f;
     if ([keyPath isEqualToString:PAGENUM]) {
         if (self.pageNum < 1) {
             return;
@@ -90,10 +95,10 @@
             if (i == self.currentPage) {
                 [pointImage setImage:[UIImage imageNamed:self.selectedImageName]];
                 [pointImage setFrame:CGRectMake(nextPointX, (height - selectedImage.size.height) / 2.f, selectedImage.size.width, selectedImage.size.height)];
-                nextPointX+=(selectedImage.size.width+10.f);
+                nextPointX+=(selectedImage.size.width + POINT_DISTANCE);
             } else {
                 [pointImage setImage:[UIImage imageNamed:self.normalImageName]];
-                nextPointX+=(normalImage.size.width+10.f);
+                nextPointX+=(normalImage.size.width + POINT_DISTANCE);
             }
             UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pageAction:)];
             [pointImage addGestureRecognizer:tapGestureRecognizer];
@@ -139,13 +144,15 @@
 
 - (void)pageAction:(UIGestureRecognizer *)gestureRecognizer {
     NSInteger tag = gestureRecognizer.view.tag;
-    self.currentPage = tag/10 - 1;
     
     if ([self.delegate respondsToSelector:@selector(didSelectMDPageIndex:)]) {
+        self.currentPage = tag/10 - 1;
         [self.delegate didSelectMDPageIndex:self.currentPage];
     }
-    
-    self.pageHandlerBlock(self.currentPage);
+    if (self.pageHandlerBlock != nil) {
+        self.currentPage = tag/10 - 1;
+        self.pageHandlerBlock(self.currentPage);
+    }
 }
 
 - (void)didSelectMDPageIndexBlock:(PageHandler)handler {

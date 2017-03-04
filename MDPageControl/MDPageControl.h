@@ -30,6 +30,7 @@ typedef void (^PageHandler)(NSInteger pageIndex); //pageIndex=currentPage, from 
 @property (nonatomic) float offsetX;
 @property (nonatomic, weak) UIScrollView *scrollView;
 
+- (instancetype)initWithPointImagesAndPadding:(UIScrollView *)scrollView normalImage:(NSString *)normalImageName selectedImage:(NSString *)selectedImageName padding:(float)padding;
 - (instancetype)initWithPointImages:(UIScrollView *)scrollView normalImage:(NSString *)normalImageName selectedImage:(NSString *)selectedImageName;
 - (instancetype)initWithType:(UIScrollView *)scrollView type:(MDPointType)type;
 - (instancetype)initWithTypeAndBottomPadding:(UIScrollView *)scrollView type:(MDPointType)type padding:(float)padding;
