@@ -7,6 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#define PAGENUM @"pageNum"
+#define CURRENTPAGE @"currentPage"
+#define CONTENTOFFSET @"scrollView.contentOffset"
+
+//pageControllView离scrollView底部的距离
+#define PADDING 25.f
+
+//distance between points
+//圆点之间的间距
+#define POINT_DISTANCE 10.f
+
+#define POINT_NORMAL @"point_normal"
+#define POINT_SELECTED @"point_selected"
+
+#define POINT_BLOCK_NORMAL @"point_block_normal"
+#define POINT_BLOCK_SELECTED @"point_block_selected"
+
+
 @protocol MDPageControlDelegate <NSObject>
 @optional
 - (void)didSelectMDPageIndex:(NSInteger)pageIndex;
