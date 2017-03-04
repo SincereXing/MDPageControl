@@ -49,4 +49,4 @@ If you want to change the distance between points, you can modify the MDPageCont
 ![(分页控件展示-圆点)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/1.gif)
 ###Block
 ![(分页控件展示-块)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/2.gif)
-
+##Thanks for use!!!
