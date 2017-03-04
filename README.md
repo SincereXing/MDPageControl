@@ -1,5 +1,5 @@
 # MDPageControl
-When I want to use the paging component of `UIScrollView`, I found that there is no suitable. So I wrote a custom paging components, it is very convenient to use very simple. Now she shared to everyone, everyone in the use of the process can also give me valuable advice, thank you for using!!!
+When I want to use the paging component of `UIScrollView`, I found that there is no suitable. So I wrote a custom paging components, it is very convenient to use very simple. Now shared to you, you can also give me some advice, thank you for using!!!
 ## Usage
 ```objective-c
 //选中的图片是点
