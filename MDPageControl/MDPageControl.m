@@ -61,6 +61,9 @@
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
+    if (self.pageNum < 2) {
+        return;
+    }
     float width = CGRectGetWidth(self.frame);
     float height = CGRectGetHeight(self.frame);
     
@@ -70,9 +73,6 @@
     
     float x = (width - (self.pageNum - 1)*normalImage.size.width - selectedImage.size.height - (self.pageNum - 1.f)*POINT_DISTANCE)/2.f;
     if ([keyPath isEqualToString:PAGENUM]) {
-        if (self.pageNum < 1) {
-            return;
-        }
         float nextPointX = x;
         for (int i = 0; i < self.pageNum; i++) {
             UIImageView *pointImage = [[UIImageView alloc] initWithFrame:CGRectMake(nextPointX, (height - normalImage.size.height) / 2.f, normalImage.size.width, normalImage.size.height)];
