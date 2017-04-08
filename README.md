@@ -21,14 +21,14 @@ When I want to use the paging component of `UIScrollView`, I found that there is
     //显示pageControllView
     [self.pageControl show];
 ```
-###Block
+### Block
 ```objective-c
     //点击小点block
     [self.pageControl didSelectMDPageIndexBlock:^(NSInteger pageIndex) {
         [self.scrollView scrollRectToVisible:CGRectMake(pageIndex*SCREEN_WIDTH, 0, SCREEN_WIDTH, 175.f) animated:YES];
     }];
 ```
-###Delegate
+### Delegate
 ```objective-c
     //可以设置delegate，当点击小点时，执行delegate方法
     self.pageControl.delegate = self;
@@ -38,15 +38,15 @@ When I want to use the paging component of `UIScrollView`, I found that there is
     [self.scrollView scrollRectToVisible:CGRectMake(pageIndex*SCREEN_WIDTH, 0, SCREEN_WIDTH, 175.f) animated:YES];
 }
 ```
-###Other
+### Other
 If you want to change the distance between points, you can modify the MDPageControl.h file
 ```objective-c
 //distance between points
 //圆点之间的间距
 #define POINT_DISTANCE 10.f
 ```
-###Point
+### Point
 ![(分页控件展示-圆点)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/1.gif)
-###Block
+### Block
 ![(分页控件展示-块)](https://github.com/SincereXing/MDPageControl/blob/master/MDPageControlExample/2.gif)
-##Thanks for use!!!
+## Thanks for use!!!
